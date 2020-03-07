@@ -1,0 +1,13 @@
+headers = {}
+headers["User-Agent"] = "Contact: Daemin Lee, Email: dmnlee95@gmail.com, Application: Weather Platformer Game"
+
+local function http_result(self, _, response)
+	print(response.status)
+	print(response.response)
+	pprint(response.headers)
+end
+
+function init(self)
+	print(headers["info"])
+	http.request("https://api.weather.gov/gridpoints/TOP/33,84", "GET", http_result, headers)
+end
