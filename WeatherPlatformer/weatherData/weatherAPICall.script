@@ -3,8 +3,9 @@ headers["User-Agent"] = "Contact: Daemin Lee, Email: dmnlee95@gmail.com, Applica
 
 local function http_result(self, _, response)
 	print(response.status)
-	print(response.response)
 	pprint(response.headers)
+	local dataTable = json.decode(response.response)
+	pprint(dataTable)
 end
 
 function init(self)
