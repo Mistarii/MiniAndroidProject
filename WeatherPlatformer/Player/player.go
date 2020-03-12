@@ -1,6 +1,6 @@
 components {
-  id: "Level1"
-  component: "/Level/Tiles/Level1.tilemap"
+  id: "player"
+  component: "/Player/player.script"
   position {
     x: 0.0
     y: 0.0
