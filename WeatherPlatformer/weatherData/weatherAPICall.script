@@ -2,13 +2,24 @@ headers = {}
 headers["User-Agent"] = "Contact: Daemin Lee, Email: dmnlee95@gmail.com, Application: Weather Platformer Game"
 
 local function http_result(self, _, response)
-	print(response.status)
-	pprint(response.headers)
+
 	local dataTable = json.decode(response.response)
 	pprint(dataTable)
+
+	local keyset={}
+	local n = 0
+	for k,v in pairs(dataTable) do
+		n=n+1
+		keyset[n]=k
+	end
+	pprint(keyset)
+	
+	local temperature = dataTable["properties"]
+	pprint(temperature)
+	
 end
 
 function init(self)
 	print(headers["info"])
-	http.request("https://api.weather.gov/gridpoints/TOP/33,84", "GET", http_result, headers)
+	http.request("https://api.weather.gov/gridpoints/TOP/33,84/forecast", "GET", http_result, headers)
 end
