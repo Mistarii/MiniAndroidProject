@@ -1,13 +1,29 @@
+--Headers for http request 
 headers = {}
+--Required to leave contact and application information to the National Weather Service for every http request
 headers["User-Agent"] = "Contact: Daemin Lee, Email: dmnlee95@gmail.com, Application: Weather Platformer Game"
 
-local function http_result(self, _, response)
-	print(response.status)
-	print(response.response)
-	pprint(response.headers)
+--Rest call that obtains weather information of the grid point of Marietta, GA via the Peachtree City Weather Service Office Data.
+local function restCall(self, _, response)
+	--parses the JSON response into data table 
+	local dataTable = json.decode(response.response)
+
+	--declares the array to store temperature
+	heat = {}
+
+	--stores the nested data tables's temperature values into heat array 
+	for i = 1, 14 do
+		heat[i] = dataTable["periods"][i]["temperature"]
+	end
+
+	--prints the temperature value within the array
+	pprint(heat)
+	
+
 end
 
 function init(self)
-	print(headers["info"])
-	http.request("https://api.weather.gov/gridpoints/TOP/33,84", "GET", http_result, headers)
+	print(headers["User-Agent"])
+	--Uses http request function in Defold
+	http.request("https://api.weather.gov/gridpoints/ffc/33,84/forecast?units=us", "GET", restCall, headers)
 end
