@@ -1,5 +1,6 @@
 [project]
 title = WeatherPlatformer
+dependencies = https://github.com/Melsoft-Games/defold-cjson/archive/master.zip
 
 [bootstrap]
 main_collection = /input/main.collectionc
@@ -59,4 +60,7 @@ shared_state = 1
 [physics]
 gravity_y = -1000.0
 scale = 0.01
+
+[library]
+include_dirs = 
 
