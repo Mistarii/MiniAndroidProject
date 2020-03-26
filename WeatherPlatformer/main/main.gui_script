@@ -1,0 +1,36 @@
+function init(self)
+	-- Add initialization code here
+	-- Remove this function if not needed
+	self.day0 = 20
+	self.day1 = 30
+	self.day2 = 40
+	self.day3 = 50
+	self.day4 = 60
+	self.day5 = 70
+	self.day6 = 80
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
